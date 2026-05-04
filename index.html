@@ -1,159 +1,990 @@
-<!DOCTYPE HTML>
-<!--
-	Big Picture by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Big Picture by HTML5 UP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sonicboom Studios</title>
+  <style>
+    :root {
+      --bg-main: #03060a;
+      --bg-mid: #07111f;
+      --bg-deep: #030406;
+      --text: rgba(255,255,255,0.96);
+      --muted: rgba(255,255,255,0.75);
+      --soft: rgba(255,255,255,0.45);
+      --line: rgba(255,255,255,0.1);
+    }
 
-		<!-- Header -->
-			<header id="header">
-				<h1>Big Picture</h1>
-				<nav>
-					<ul>
-						<li><a href="#intro">Intro</a></li>
-						<li><a href="#one">What I Do</a></li>
-						<li><a href="#two">Who I Am</a></li>
-						<li><a href="#work">My Work</a></li>
-						<li><a href="#contact">Contact</a></li>
-					</ul>
-				</nav>
-			</header>
+    * { box-sizing: border-box; }
 
-		<!-- Intro -->
-			<section id="intro" class="main style1 dark fullscreen">
-				<div class="content">
-					<header>
-						<h2>Hey.</h2>
-					</header>
-					<p>Welcome to <strong>Big Picture</strong> a responsive site template designed by <a href="https://html5up.net">HTML5 UP</a><br />
-					and released for free under the <a href="https://html5up.net/license">Creative Commons Attribution license</a>.</p>
-					<footer>
-						<a href="#one" class="button style2 down">More</a>
-					</footer>
-				</div>
-			</section>
+    html, body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: var(--bg-main);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
 
-		<!-- One -->
-			<section id="one" class="main style2 right dark fullscreen">
-				<div class="content box style2">
-					<header>
-						<h2>What I Do</h2>
-					</header>
-					<p>Lorem ipsum dolor sit amet et sapien sed elementum egestas dolore condimentum.
-					Fusce blandit ultrices sapien, in accumsan orci rhoncus eu. Sed sodales venenatis arcu,
-					id varius justo euismod in. Curabitur egestas consectetur magna.</p>
-				</div>
-				<a href="#two" class="button style2 down anchored">Next</a>
-			</section>
+    body {
+      position: relative;
+      background:
+        radial-gradient(circle at top, rgba(91,160,255,0.12), transparent 32%),
+        linear-gradient(135deg, var(--bg-main) 0%, var(--bg-mid) 50%, var(--bg-deep) 100%);
+    }
 
-		<!-- Two -->
-			<section id="two" class="main style2 left dark fullscreen">
-				<div class="content box style2">
-					<header>
-						<h2>Who I Am</h2>
-					</header>
-					<p>Lorem ipsum dolor sit amet et sapien sed elementum egestas dolore condimentum.
-					Fusce blandit ultrices sapien, in accumsan orci rhoncus eu. Sed sodales venenatis arcu,
-					id varius justo euismod in. Curabitur egestas consectetur magna.</p>
-				</div>
-				<a href="#work" class="button style2 down anchored">Next</a>
-			</section>
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.25;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+      background-size: 64px 64px;
+      z-index: 1;
+    }
 
-		<!-- Work -->
-			<section id="work" class="main style3 primary">
-				<div class="content">
-					<header>
-						<h2>My Work</h2>
-						<p>Lorem ipsum dolor sit amet et sapien sed elementum egestas dolore condimentum.
-						Fusce blandit ultrices sapien, in accumsan orci rhoncus eu. Sed sodales venenatis
-						arcu, id varius justo euismod in. Curabitur egestas consectetur magna vitae.</p>
-					</header>
+    .site {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
 
-					<!-- Gallery  -->
-						<div class="gallery">
-							<article class="from-left">
-								<a href="images/fulls/01.jpg" class="image fit"><img src="images/thumbs/01.jpg" title="The Anonymous Red" alt="" /></a>
-							</article>
-							<article class="from-right">
-								<a href="images/fulls/02.jpg" class="image fit"><img src="images/thumbs/02.jpg" title="Airchitecture II" alt="" /></a>
-							</article>
-							<article class="from-left">
-								<a href="images/fulls/03.jpg" class="image fit"><img src="images/thumbs/03.jpg" title="Air Lounge" alt="" /></a>
-							</article>
-							<article class="from-right">
-								<a href="images/fulls/04.jpg" class="image fit"><img src="images/thumbs/04.jpg" title="Carry on" alt="" /></a>
-							</article>
-							<article class="from-left">
-								<a href="images/fulls/05.jpg" class="image fit"><img src="images/thumbs/05.jpg" title="The sparkling shell" alt="" /></a>
-							</article>
-							<article class="from-right">
-								<a href="images/fulls/06.jpg" class="image fit"><img src="images/thumbs/06.jpg" title="Bent IX" alt="" /></a>
-							</article>
-						</div>
+    .page-shell {
+      position: absolute;
+      inset: 0;
+      transition: opacity 0.9s ease, transform 0.9s ease, filter 0.9s ease;
+      z-index: 2;
+    }
 
-				</div>
-			</section>
+    .page-shell.hidden {
+      opacity: 0;
+      transform: scale(1.02);
+      filter: blur(8px);
+      pointer-events: none;
+    }
 
-		<!-- Contact -->
-			<section id="contact" class="main style3 secondary">
-				<div class="content">
-					<header>
-						<h2>Say Hello.</h2>
-						<p>Lorem ipsum dolor sit amet et sapien sed elementum egestas dolore condimentum.</p>
-					</header>
-					<div class="box">
-						<form method="post" action="#">
-							<div class="fields">
-								<div class="field half"><input type="text" name="name" placeholder="Name" /></div>
-								<div class="field half"><input type="email" name="email" placeholder="Email" /></div>
-								<div class="field"><textarea name="message" placeholder="Message" rows="6"></textarea></div>
-							</div>
-							<ul class="actions special">
-								<li><input type="submit" value="Send Message" /></li>
-							</ul>
-						</form>
-					</div>
-				</div>
-			</section>
+    .page-shell.visible {
+      opacity: 1;
+      transform: scale(1);
+      filter: blur(0);
+    }
 
-		<!-- Footer -->
-			<footer id="footer">
+    .header {
+      position: absolute;
+      z-index: 30;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 24px;
+    }
 
-				<!-- Icons -->
-					<ul class="icons">
-						<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="#" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-						<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-						<li><a href="#" class="icon brands fa-pinterest"><span class="label">Pinterest</span></a></li>
-					</ul>
+    .eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 10px;
+    }
 
-				<!-- Menu -->
-					<ul class="menu">
-						<li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-					</ul>
+    .brand {
+      font-size: clamp(18px, 2vw, 24px);
+      font-weight: 600;
+      letter-spacing: 0.24em;
+    }
 
-			</footer>
+    .desktop-only { display: none; }
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.poptrox.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+    .pill {
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.05);
+      border-radius: 999px;
+      padding: 11px 16px;
+      font-size: 12px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      backdrop-filter: blur(8px);
+    }
 
-	</body>
+    .main-stage {
+      position: absolute;
+      inset: 88px 0 0 0;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      pointer-events: none;
+      will-change: transform, opacity;
+      animation: enterUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .slide.slide-down { animation-name: enterDown; }
+
+    .slide-bg,
+    .slide-floaters,
+    .slide-noise,
+    .slide-scan,
+    .slide-v1,
+    .slide-v2,
+    .slide-v3,
+    .slide-glow,
+    .slide-beam-a,
+    .slide-beam-b,
+    .slide-rings {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .slide-glow {
+      inset: auto;
+      left: 50%;
+      top: 50%;
+      width: 34rem;
+      height: 34rem;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      filter: blur(48px);
+      animation: pulseGlow 4.2s ease-in-out infinite;
+    }
+
+    .slide-rings {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slide-ring {
+      position: absolute;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 50%;
+      animation: ringPulse 3s ease-in-out infinite;
+    }
+
+    .slide-beam-a {
+      left: -10%;
+      right: -10%;
+      top: 50%;
+      height: 6rem;
+      transform: translateY(-50%);
+      transform-origin: center;
+      opacity: 0.8;
+      filter: blur(16px);
+      animation: beamA 3.4s ease-in-out infinite;
+    }
+
+    .slide-beam-b {
+      left: -10%;
+      right: -10%;
+      top: 50%;
+      height: 1.5rem;
+      transform: translateY(-50%);
+      transform-origin: center;
+      opacity: 0.95;
+      animation: beamB 2.6s ease-in-out infinite;
+    }
+
+    .slide-noise {
+      opacity: 0.4;
+      mix-blend-mode: screen;
+      background: repeating-radial-gradient(circle at center, rgba(255,255,255,0.18) 0px, rgba(255,255,255,0.03) 2px, transparent 22px);
+    }
+
+    .slide-scan {
+      opacity: 0.2;
+      background-image: linear-gradient(transparent 96%, rgba(255,255,255,0.16) 100%);
+      background-size: 100% 10px;
+    }
+
+    .slide-v1 {
+      background: linear-gradient(180deg, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.04) 35%, rgba(0,0,0,0.55) 100%);
+    }
+
+    .slide-v2 {
+      background: radial-gradient(circle at center, transparent 58%, rgba(4,7,13,0.14) 72%, rgba(4,7,13,0.52) 88%, rgba(4,7,13,0.92) 100%);
+    }
+
+    .slide-v3 {
+      background: radial-gradient(circle at center, transparent 12%, rgba(0,0,0,0.38) 72%);
+      box-shadow: inset 0 0 140px rgba(0,0,0,0.75);
+    }
+
+    .content {
+      position: absolute;
+      z-index: 20;
+      top: 112px;
+      left: 20px;
+      right: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+    }
+
+    .copy-wrap { max-width: 48rem; }
+
+    .tag-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .tag-pill {
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(0,0,0,0.2);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 12px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+    }
+
+    .tag-label {
+      font-size: 12px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+    }
+
+    .copy-enter { animation: copyIn 0.55s ease forwards; }
+    .copy-enter.copy-down { animation-name: copyInDown; }
+
+    .hero-title {
+      max-width: 8ch;
+      margin: 0;
+      font-size: clamp(3.2rem, 10vw, 7rem);
+      line-height: 0.88;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .hero-subtitle {
+      margin-top: 20px;
+      max-width: 32rem;
+      font-size: 16px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.75);
+    }
+
+    .info-card {
+      max-width: 14rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 1.5rem;
+      background: rgba(0,0,0,0.2);
+      padding: 16px;
+      backdrop-filter: blur(14px);
+    }
+
+    .info-icon {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+
+    .info-title {
+      font-size: 10px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 10px;
+    }
+
+    .info-copy {
+      font-size: 14px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .footer {
+      position: absolute;
+      z-index: 20;
+      left: 20px;
+      right: 20px;
+      bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 20px;
+    }
+
+    .progress {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .progress-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .progress-line {
+      height: 2px;
+      width: 32px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.25);
+      transition: width 0.5s ease, background 0.5s ease;
+    }
+
+    .progress-item.active .progress-line {
+      width: 56px;
+      background: rgba(255,255,255,1);
+    }
+
+    .progress-num {
+      font-size: 10px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      transition: color 0.5s ease;
+    }
+
+    .progress-item.active .progress-num {
+      color: rgba(255,255,255,0.9);
+    }
+
+    .mark { text-align: right; }
+
+    .mark-a {
+      font-size: 10px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 8px;
+    }
+
+    .mark-b {
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .hint {
+      position: absolute;
+      z-index: 25;
+      left: 50%;
+      bottom: 96px;
+      transform: translateX(-50%);
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(0,0,0,0.25);
+      border-radius: 999px;
+      padding: 14px 20px;
+      font-size: 12px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      backdrop-filter: blur(14px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .hint.hidden {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(-50%) translateY(10px);
+    }
+
+    .loader {
+      position: absolute;
+      inset: 0;
+      z-index: 120;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      transition: opacity 0.7s ease, visibility 0.7s ease, transform 0.7s ease;
+    }
+
+    .loader.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .loader.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .loader.exiting .loader-stage {
+      transform: scale(1.04);
+      filter: blur(6px);
+    }
+
+    .loader-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top, rgba(63, 139, 255, 0.18), transparent 34%),
+        radial-gradient(circle at 50% 50%, rgba(17, 62, 134, 0.18), transparent 45%),
+        linear-gradient(180deg, #02050a 0%, #050b12 100%);
+    }
+
+    .loader-glow {
+      position: absolute;
+      width: 46rem;
+      height: 46rem;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(40, 111, 255, 0.18), rgba(255,255,255,0.02) 50%, transparent 72%);
+      filter: blur(22px);
+      animation: loaderGlowPulse 3.6s ease-in-out infinite;
+    }
+
+    .loader-stage {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.2rem;
+      transition: transform 0.7s ease, filter 0.7s ease;
+    }
+
+    .loader-particle-shell {
+      position: relative;
+      width: min(78vw, 760px);
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .loader-particle-field {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .loader-particle {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(140,190,255,0.95) 45%, rgba(78,129,255,0.18) 100%);
+      box-shadow: 0 0 14px rgba(126, 184, 255, 0.7);
+      transform: translate3d(var(--dx), var(--dy), 0) scale(0.2);
+      opacity: 0;
+      animation-name: loaderParticleLoop;
+      animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+      animation-iteration-count: infinite;
+      will-change: transform, opacity;
+    }
+
+    .loader-logo-wrap {
+      position: relative;
+      width: 76%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+
+    .loader-logo {
+      width: 100%;
+      max-width: 620px;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 0 30px rgba(37, 101, 220, 0.18));
+      animation: logoParticleCycle 4.8s ease-in-out infinite;
+    }
+
+    .loader-copy {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.9rem;
+      text-align: center;
+    }
+
+    .loader-kicker {
+      font-size: 0.72rem;
+      letter-spacing: 0.55em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .loader-title {
+      font-size: clamp(1rem, 1.8vw, 1.28rem);
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.92);
+    }
+
+    .loader-dots {
+      display: flex;
+      gap: 0.55rem;
+    }
+
+    .loader-dots span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.82);
+      animation: loaderDot 1.2s ease-in-out infinite;
+    }
+
+    .loader-dots span:nth-child(2) { animation-delay: 0.18s; }
+    .loader-dots span:nth-child(3) { animation-delay: 0.36s; }
+
+    @keyframes loaderGlowPulse {
+      0%, 100% { transform: scale(0.96); opacity: 0.68; }
+      50% { transform: scale(1.04); opacity: 1; }
+    }
+
+    @keyframes logoParticleCycle {
+      0% {
+        opacity: 0;
+        transform: scale(0.9);
+        filter: drop-shadow(0 0 6px rgba(37, 101, 220, 0.08)) blur(10px);
+      }
+      18% {
+        opacity: 0.08;
+        transform: scale(0.94);
+        filter: drop-shadow(0 0 10px rgba(37, 101, 220, 0.12)) blur(6px);
+      }
+      32% {
+        opacity: 1;
+        transform: scale(1);
+        filter: drop-shadow(0 0 24px rgba(37, 101, 220, 0.18)) blur(0px);
+      }
+      58% {
+        opacity: 1;
+        transform: scale(1.01);
+        filter: drop-shadow(0 0 26px rgba(37, 101, 220, 0.2)) blur(0px);
+      }
+      78% {
+        opacity: 0.22;
+        transform: scale(1.03);
+        filter: drop-shadow(0 0 12px rgba(37, 101, 220, 0.12)) blur(4px);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(1.08);
+        filter: drop-shadow(0 0 4px rgba(37, 101, 220, 0.04)) blur(10px);
+      }
+    }
+
+    @keyframes loaderParticleLoop {
+      0% {
+        opacity: 0;
+        transform: translate3d(var(--dx), var(--dy), 0) scale(0.15);
+      }
+      18% {
+        opacity: 0.9;
+        transform: translate3d(var(--sx), var(--sy), 0) scale(1);
+      }
+      32% {
+        opacity: 0.95;
+        transform: translate3d(calc(var(--sx) * 0.22), calc(var(--sy) * 0.22), 0) scale(0.9);
+      }
+      56% {
+        opacity: 0.22;
+        transform: translate3d(0px, 0px, 0) scale(0.45);
+      }
+      74% {
+        opacity: 0.95;
+        transform: translate3d(calc(var(--sx) * -0.35), calc(var(--sy) * -0.35), 0) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translate3d(var(--dx), var(--dy), 0) scale(0.2);
+      }
+    }
+
+    @keyframes loaderDot {
+      0%, 80%, 100% { opacity: 0.28; transform: scale(0.75); }
+      40% { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes enterUp {
+      from { opacity: 0; transform: translateY(90px) scale(0.94) rotate(-2deg); }
+      to { opacity: 1; transform: translateY(0) scale(1) rotate(0deg); }
+    }
+
+    @keyframes enterDown {
+      from { opacity: 0; transform: translateY(-90px) scale(0.94) rotate(2deg); }
+      to { opacity: 1; transform: translateY(0) scale(1) rotate(0deg); }
+    }
+
+    @keyframes copyIn {
+      from { opacity: 0; transform: translateY(22px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes copyInDown {
+      from { opacity: 0; transform: translateY(-22px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { transform: translate(-50%, -50%) scale(0.95); opacity: 0.45; }
+      50% { transform: translate(-50%, -50%) scale(1.15); opacity: 0.75; }
+    }
+
+    @keyframes ringPulse {
+      0%, 100% { transform: scale(1); opacity: 0.2; }
+      50% { transform: scale(1.18); opacity: 0.45; }
+    }
+
+    @keyframes beamA {
+      0%, 100% { transform: translateY(-50%) translateX(-8%) scaleX(0.92); }
+      50% { transform: translateY(-50%) translateX(8%) scaleX(1.08); }
+    }
+
+    @keyframes beamB {
+      0%, 100% { transform: translateY(-50%) translateX(8%) scaleX(1.02); }
+      50% { transform: translateY(-50%) translateX(-8%) scaleX(0.94); }
+    }
+
+    @media (min-width: 768px) {
+      .desktop-only { display: block; }
+      .content { top: 128px; left: 40px; right: 40px; }
+      .footer { left: 40px; right: 40px; bottom: 40px; }
+    }
+
+    @media (max-width: 200px) {
+      .loader-stage { gap: 1.6rem; }
+      .loader-particle-shell { width: min(92vw, 560px); }
+      .loader-logo-wrap { width: 88%; }
+      .loader-kicker { font-size: 0.58rem; letter-spacing: 0.4em; }
+      .loader-title { font-size: 0.92rem; letter-spacing: 0.25em; }
+      .content { top: 112px; flex-direction: column; }
+      .footer { flex-direction: column; align-items: flex-start; }
+      .mark { text-align: left; }
+      .hint { width: calc(100% - 32px); text-align: center; font-size: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site">
+    <div id="pageShell" class="page-shell hidden">
+      <header class="header">
+        <div>
+          <div class="eyebrow">Studio identity</div>
+          <div class="brand">SONICBOOM STUDIOS</div>
+        </div>
+        <div class="desktop-only pill">Scroll to navigate</div>
+      </header>
+
+      <main class="main-stage" id="mainStage"></main>
+
+      <div class="content">
+        <div class="copy-wrap">
+          <div class="tag-row">
+            <div class="tag-pill" id="slideTag">01</div>
+            <div class="tag-label">Image-only motion system</div>
+          </div>
+
+          <div id="copyBlock" class="copy-enter">
+            <h1 class="hero-title" id="slideTitle">Shockwave</h1>
+            <p class="hero-subtitle" id="slideSubtitle">Speed visualized as identity.</p>
+          </div>
+        </div>
+
+        <div class="desktop-only info-card">
+          <div class="info-icon" id="infoIcon">⚡</div>
+          <div class="info-title">Current frame</div>
+          <div class="info-copy">A scroll-driven gallery built entirely from motion graphics so preview works reliably.</div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <div class="progress" id="progress"></div>
+        <div class="mark">
+          <div class="mark-a">Studio mark</div>
+          <div class="mark-b">Breaking silence with images.</div>
+        </div>
+      </footer>
+
+      <div id="hint" class="hint">Use mouse wheel, swipe, or arrow keys</div>
+    </div>
+
+    
+    <div id="loader" class="loader visible">
+      <div class="loader-bg"></div>
+      <div class="loader-glow"></div>
+      <div class="loader-stage">
+        <div class="loader-particle-shell">
+          <div class="loader-logo-wrap">
+            <img id="loaderLogo" class="loader-logo" alt="Sonic Boom Studios logo" />
+          </div>
+          <div class="loader-particle-field" id="loaderParticles" aria-hidden="true"></div>
+        </div>
+
+        <div class="loader-copy">
+          <div class="loader-kicker">Preparing launch sequence</div>
+          <div class="loader-title">SONIC BOOM STUDIOS</div>
+          <div class="loader-dots">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const LOGO_SRC = "images/sonicboom_logo.png";
+
+    const slides = [
+      {
+        title: "Shockwave",
+        subtitle: "Speed visualized as identity.",
+        tag: "01",
+        icon: "⚡",
+        accent: "linear-gradient(135deg, rgba(34,211,238,0.30), rgba(59,130,246,0.20), transparent 72%)",
+        glow: "rgba(103,232,249,0.25)",
+        band: "linear-gradient(90deg, #67e8f9, #3b82f6, #4f46e5)",
+      },
+      {
+        title: "Velocity",
+        subtitle: "Frames built like sonic pressure.",
+        tag: "02",
+        icon: "✈",
+        accent: "linear-gradient(135deg, rgba(167,139,250,0.25), rgba(217,70,239,0.20), transparent 72%)",
+        glow: "rgba(196,181,253,0.25)",
+        band: "linear-gradient(90deg, #a78bfa, #d946ef, #ec4899)",
+      },
+      {
+        title: "Frequency",
+        subtitle: "A studio language tuned for impact.",
+        tag: "03",
+        icon: "◉",
+        accent: "linear-gradient(135deg, rgba(252,211,77,0.25), rgba(249,115,22,0.20), transparent 72%)",
+        glow: "rgba(253,230,138,0.20)",
+        band: "linear-gradient(90deg, #fcd34d, #f97316, #ef4444)",
+      },
+      {
+        title: "Afterburn",
+        subtitle: "Memorable worlds, sharp silhouettes, infinite lift.",
+        tag: "04",
+        icon: "✦",
+        accent: "linear-gradient(135deg, rgba(110,231,183,0.25), rgba(20,184,166,0.20), transparent 72%)",
+        glow: "rgba(167,243,208,0.20)",
+        band: "linear-gradient(90deg, #6ee7b7, #14b8a6, #06b6d4)",
+      },
+    ];
+
+    const LOADER_PARTICLES = Array.from({ length: 84 }, (_, i) => {
+      const angle = (i / 84) * Math.PI * 2;
+      const radius = 180 + (i % 7) * 22;
+      return {
+        id: i,
+        spreadX: Math.cos(angle) * radius,
+        spreadY: Math.sin(angle) * radius * 0.62,
+        driftX: Math.cos(angle * 1.7) * (260 + (i % 5) * 30),
+        driftY: Math.sin(angle * 1.35) * (180 + (i % 6) * 26),
+        size: 4 + (i % 4) * 1.8,
+        delay: (i % 14) * 0.08,
+        duration: 4.8 + (i % 6) * 0.18,
+      };
+    });
+
+    const mainStage = document.getElementById('mainStage');
+    const pageShell = document.getElementById('pageShell');
+    const loader = document.getElementById('loader');
+    const hint = document.getElementById('hint');
+    const slideTag = document.getElementById('slideTag');
+    const slideTitle = document.getElementById('slideTitle');
+    const slideSubtitle = document.getElementById('slideSubtitle');
+    const infoIcon = document.getElementById('infoIcon');
+    const progress = document.getElementById('progress');
+    const copyBlock = document.getElementById('copyBlock');
+    const loaderLogo = document.getElementById('loaderLogo');
+    const loaderParticles = document.getElementById('loaderParticles');
+
+    loaderLogo.src = LOGO_SRC;
+
+    LOADER_PARTICLES.forEach((particle) => {
+      const dot = document.createElement('span');
+      dot.className = 'loader-particle';
+      dot.style.width = `${particle.size}px`;
+      dot.style.height = `${particle.size}px`;
+      dot.style.animationDelay = `${particle.delay}s`;
+      dot.style.animationDuration = `${particle.duration}s`;
+      dot.style.setProperty('--sx', `${particle.spreadX}px`);
+      dot.style.setProperty('--sy', `${particle.spreadY}px`);
+      dot.style.setProperty('--dx', `${particle.driftX}px`);
+      dot.style.setProperty('--dy', `${particle.driftY}px`);
+      loaderParticles.appendChild(dot);
+    });
+
+    let index = 0;
+    let direction = 1;
+    let isLocked = false;
+    let showLoader = true;
+    let touchStartY = null;
+
+    function renderProgress() {
+      progress.innerHTML = '';
+      slides.forEach((slide, slideIndex) => {
+        const item = document.createElement('div');
+        item.className = `progress-item ${slideIndex === index ? 'active' : ''}`;
+        item.innerHTML = `<div class="progress-line"></div><div class="progress-num">${slide.tag}</div>`;
+        progress.appendChild(item);
+      });
+    }
+
+    function renderCopy() {
+      const active = slides[index];
+      slideTag.textContent = active.tag;
+      slideTitle.textContent = active.title;
+      slideSubtitle.textContent = active.subtitle;
+      infoIcon.textContent = active.icon;
+
+      copyBlock.className = `copy-enter ${direction > 0 ? '' : 'copy-down'}`;
+      copyBlock.offsetHeight;
+      copyBlock.className = `copy-enter ${direction > 0 ? '' : 'copy-down'}`;
+    }
+
+    function buildSlide(slide, dir) {
+      const el = document.createElement('div');
+      el.className = `slide ${dir > 0 ? '' : 'slide-down'}`;
+
+      const glow = document.createElement('div');
+      glow.className = 'slide-glow';
+      glow.style.background = slide.glow;
+
+      const rings = document.createElement('div');
+      rings.className = 'slide-rings';
+      [12, 24, 36, 48].forEach((size, ringIndex) => {
+        const ring = document.createElement('div');
+        ring.className = 'slide-ring';
+        ring.style.width = `${size}rem`;
+        ring.style.height = `${size}rem`;
+        ring.style.animationDuration = `${2.85 + ringIndex * 0.45}s`;
+        rings.appendChild(ring);
+      });
+
+      const parts = [
+        ['slide-bg', slide.accent],
+        ['slide-floaters', 'radial-gradient(circle at 20% 20%, rgba(255,255,255,0.1), transparent 18%), radial-gradient(circle at 80% 30%, rgba(255,255,255,0.08), transparent 16%), radial-gradient(circle at 50% 80%, rgba(255,255,255,0.08), transparent 14%)'],
+      ];
+
+      parts.forEach(([cls, bg]) => {
+        const div = document.createElement('div');
+        div.className = cls;
+        div.style.background = bg;
+        el.appendChild(div);
+      });
+
+      el.appendChild(glow);
+      el.appendChild(rings);
+
+      const beamAEl = document.createElement('div');
+      beamAEl.className = 'slide-beam-a';
+      beamAEl.style.background = slide.band;
+      el.appendChild(beamAEl);
+
+      const beamBEl = document.createElement('div');
+      beamBEl.className = 'slide-beam-b';
+      beamBEl.style.background = slide.band;
+      el.appendChild(beamBEl);
+
+      ['slide-noise', 'slide-scan', 'slide-v1', 'slide-v2', 'slide-v3'].forEach((cls) => {
+        const div = document.createElement('div');
+        div.className = cls;
+        el.appendChild(div);
+      });
+
+      return el;
+    }
+
+    function renderSlide() {
+      mainStage.innerHTML = '';
+      mainStage.appendChild(buildSlide(slides[index], direction));
+      renderCopy();
+      renderProgress();
+    }
+
+    function goTo(dir) {
+      if (isLocked || showLoader) return;
+      const next = index + dir;
+      if (next < 0 || next >= slides.length) return;
+
+      direction = dir;
+      index = next;
+      isLocked = true;
+      hint.classList.add('hidden');
+      renderSlide();
+
+      window.setTimeout(() => {
+        isLocked = false;
+      }, 750);
+    }
+
+    window.addEventListener('wheel', (event) => {
+      if (Math.abs(event.deltaY) < 12) return;
+      goTo(event.deltaY > 0 ? 1 : -1);
+    }, { passive: true });
+
+    window.addEventListener('keydown', (event) => {
+      if (['ArrowDown', 'PageDown', ' '].includes(event.key)) {
+        event.preventDefault();
+        goTo(1);
+      }
+      if (['ArrowUp', 'PageUp'].includes(event.key)) {
+        event.preventDefault();
+        goTo(-1);
+      }
+    });
+
+    window.addEventListener('touchstart', (event) => {
+      touchStartY = event.touches[0].clientY;
+    }, { passive: true });
+
+    window.addEventListener('touchend', (event) => {
+      if (touchStartY == null) return;
+      const endY = event.changedTouches[0].clientY;
+      const delta = touchStartY - endY;
+      if (Math.abs(delta) > 40) {
+        goTo(delta > 0 ? 1 : -1);
+      }
+      touchStartY = null;
+    }, { passive: true });
+
+    function startLoader() {
+      const minDelay = 5000;
+      const start = Date.now();
+
+      function finish() {
+        const elapsed = Date.now() - start;
+        const remaining = Math.max(0, minDelay - elapsed);
+
+        window.setTimeout(() => {
+          loader.classList.add('exiting');
+          pageShell.classList.remove('hidden');
+          pageShell.classList.add('visible');
+
+          window.setTimeout(() => {
+            loader.classList.remove('visible');
+            loader.classList.add('hidden');
+            showLoader = false;
+          }, 650);
+        }, remaining);
+      }
+
+      if (document.readyState === 'complete') {
+        finish();
+      } else {
+        window.addEventListener('load', finish, { once: true });
+      }
+    }
+
+    renderSlide();
+    startLoader();
+  </script>
+</body>
 </html>
