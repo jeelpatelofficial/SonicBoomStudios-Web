@@ -159,12 +159,8 @@
     .page-shell.assembling .progress-item:nth-child(3) { animation-delay: 1.72s; }
     .page-shell.assembling .progress-item:nth-child(4) { animation-delay: 1.84s; }
 
-    .page-shell.assembling .mark-a {
-      animation: elementRevealUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) 1.72s both;
-    }
-
-    .page-shell.assembling .mark-b {
-      animation: elementRevealUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) 1.88s both;
+    .page-shell.assembling .mark-logo-display {
+      animation: logoWatermarkReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) 1.72s both;
     }
 
     .page-shell.assembling .hint {
@@ -455,19 +451,43 @@
       color: rgba(255,255,255,0.9);
     }
 
-    .mark { text-align: right; }
-
-    .mark-a {
-      font-size: 10px;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.4);
-      margin-bottom: 8px;
+    .mark {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      min-width: clamp(150px, 16vw, 230px);
+      pointer-events: none;
     }
 
-    .mark-b {
-      font-size: 14px;
-      color: rgba(255,255,255,0.7);
+    .mark-logo-display {
+      position: relative;
+      width: clamp(136px, 13vw, 205px);
+      padding: 12px 0 0;
+      opacity: 0.32;
+      filter: grayscale(1) brightness(1.8) contrast(0.72);
+      mix-blend-mode: screen;
+    }
+
+    .mark-logo-display::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 82%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.28), transparent);
+    }
+
+    .mark-logo {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      opacity: 0.72;
+      transform: translateZ(0);
+      filter:
+        drop-shadow(0 0 10px rgba(255,255,255,0.08))
+        drop-shadow(0 0 22px rgba(70,160,255,0.08));
     }
 
     /* ── Contact Modal ── */
@@ -1197,6 +1217,11 @@
       100% { opacity: 1; transform: translateY(0); filter: blur(0); }
     }
 
+    @keyframes logoWatermarkReveal {
+      0% { opacity: 0; transform: translateY(18px) scale(0.96); filter: blur(10px) grayscale(1) brightness(1.8) contrast(0.72); }
+      100% { opacity: 0.32; transform: translateY(0) scale(1); filter: blur(0) grayscale(1) brightness(1.8) contrast(0.72); }
+    }
+
     @keyframes loaderStageCollapse {
       0% { opacity: 1; transform: scale(1); filter: blur(0) brightness(1); }
       34% { opacity: 0.66; transform: scale(0.52) rotate(-3deg); filter: blur(6px) brightness(1.15); }
@@ -1254,7 +1279,8 @@
       .loader-title { font-size: 0.92rem; letter-spacing: 0.25em; }
       .content { top: 112px; flex-direction: column; }
       .footer { flex-direction: column; align-items: flex-start; }
-      .mark { text-align: left; }
+      .mark { justify-content: flex-start; min-width: 132px; }
+      .mark-logo-display { width: 132px; opacity: 0.28; }
       .hint { width: calc(100% - 32px); text-align: center; font-size: 10px; }
     }
   </style>
@@ -1288,8 +1314,9 @@
       <footer class="footer">
         <div class="progress" id="progress"></div>
         <div class="mark">
-          <div class="mark-a">Studio mark</div>
-          <div class="mark-b">Breaking silence with images.</div>
+          <div class="mark-logo-display" aria-label="Sonic Boom Studios watermark">
+            <img id="footerLogo" class="mark-logo" alt="" />
+          </div>
         </div>
       </footer>
 
@@ -1415,9 +1442,11 @@
     const progress = document.getElementById('progress');
     const copyBlock = document.getElementById('copyBlock');
     const loaderLogo = document.getElementById('loaderLogo');
+    const footerLogo = document.getElementById('footerLogo');
     const loaderParticles = document.getElementById('loaderParticles');
 
     loaderLogo.src = LOGO_SRC;
+    footerLogo.src = LOGO_SRC;
 
     // ── Layered Particle System ──
     (function () {
