@@ -74,6 +74,72 @@
       filter: blur(0);
     }
 
+    .page-shell::before,
+    .page-shell::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 18;
+      pointer-events: none;
+      opacity: 0;
+    }
+
+    .page-shell::before {
+      background:
+        radial-gradient(circle at center, rgba(255,255,255,0.96) 0 1.5%, rgba(120,202,255,0.65) 2.5%, transparent 8%),
+        repeating-conic-gradient(from 0deg, rgba(139,211,255,0.34) 0deg 2deg, transparent 2deg 10deg),
+        radial-gradient(circle at center, transparent 0 34%, rgba(121,205,255,0.18) 35%, transparent 48%);
+      mix-blend-mode: screen;
+      transform: scale(0.12);
+    }
+
+    .page-shell::after {
+      background:
+        linear-gradient(rgba(255,255,255,0.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.10) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(circle at center, #000 0 58%, transparent 75%);
+      transform: scale(0.68);
+    }
+
+    .page-shell.assembling {
+      animation: shellAssemble 1.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .page-shell.assembling::before {
+      animation: assemblyShockwave 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.04s both;
+    }
+
+    .page-shell.assembling::after {
+      animation: assemblyGrid 1.15s ease-out 0.08s both;
+    }
+
+    .page-shell.assembling .header {
+      animation: headerAssemble 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.16s both;
+    }
+
+    .page-shell.assembling .main-stage {
+      animation: stageAssemble 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
+    }
+
+    .page-shell.assembling .slide {
+      animation:
+        enterUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards,
+        imageAssemble 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
+    }
+
+    .page-shell.assembling .content {
+      animation: contentAssemble 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+    }
+
+    .page-shell.assembling .footer {
+      animation: footerAssemble 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.7s both;
+    }
+
+    .page-shell.assembling .hint {
+      animation: hintAssemble 0.65s ease-out 1s both;
+    }
+
     .header {
       position: absolute;
       z-index: 30;
@@ -548,8 +614,46 @@
     }
 
     .loader.exiting .loader-stage {
-      transform: scale(1.04);
-      filter: blur(6px);
+      animation: loaderStageCollapse 1.05s cubic-bezier(0.8, 0, 0.2, 1) both;
+    }
+
+    .loader.exiting .loader-bg {
+      animation: loaderBackdropCollapse 1.05s cubic-bezier(0.8, 0, 0.2, 1) both;
+    }
+
+    .loader.exiting .loader-glow {
+      animation: loaderGlowCollapse 1.05s cubic-bezier(0.8, 0, 0.2, 1) both;
+    }
+
+    .loader.exiting .loader-particle-shell {
+      animation: loaderShellCollapse 1.05s cubic-bezier(0.8, 0, 0.2, 1) both;
+    }
+
+    .loader.exiting .loader-copy {
+      animation: loaderCopyCollapse 0.55s ease-in both;
+    }
+
+    .loader::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      z-index: 5;
+      pointer-events: none;
+      opacity: 0;
+      background: radial-gradient(circle, #fff 0%, #dff6ff 24%, rgba(44,150,255,0.82) 48%, transparent 72%);
+      box-shadow:
+        0 0 34px rgba(255,255,255,0.96),
+        0 0 110px rgba(69,164,255,0.82),
+        0 0 210px rgba(39,105,255,0.54);
+      transform: translate(-50%, -50%) scale(0.4);
+    }
+
+    .loader.exiting::after {
+      animation: loaderImpactCore 1.05s cubic-bezier(0.8, 0, 0.2, 1) both;
     }
 
     .loader-bg {
@@ -945,6 +1049,115 @@
     @keyframes beamB {
       0%, 100% { transform: translateY(-50%) translateX(8%) scaleX(1.02); }
       50% { transform: translateY(-50%) translateX(-8%) scaleX(0.94); }
+    }
+
+    @keyframes shellAssemble {
+      0% {
+        opacity: 0;
+        transform: scale(0.72);
+        clip-path: circle(0% at 50% 50%);
+        filter: blur(22px) brightness(2);
+      }
+      34% {
+        opacity: 1;
+        transform: scale(1.04);
+        clip-path: circle(34% at 50% 50%);
+        filter: blur(8px) brightness(1.45);
+      }
+      72% {
+        opacity: 1;
+        clip-path: circle(95% at 50% 50%);
+        filter: blur(2px) brightness(1.12);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+        clip-path: circle(145% at 50% 50%);
+        filter: blur(0) brightness(1);
+      }
+    }
+
+    @keyframes assemblyShockwave {
+      0% { opacity: 0; transform: scale(0.08) rotate(0deg); filter: blur(10px); }
+      18% { opacity: 1; }
+      64% { opacity: 0.48; filter: blur(2px); }
+      100% { opacity: 0; transform: scale(2.8) rotate(18deg); filter: blur(0); }
+    }
+
+    @keyframes assemblyGrid {
+      0% { opacity: 0; transform: scale(0.12) rotate(8deg); filter: blur(10px); }
+      28% { opacity: 0.76; }
+      100% { opacity: 0; transform: scale(1.7) rotate(0deg); filter: blur(0); }
+    }
+
+    @keyframes headerAssemble {
+      0% { opacity: 0; transform: translateY(-42px); clip-path: inset(0 48% 0 48%); }
+      100% { opacity: 1; transform: translateY(0); clip-path: inset(0); }
+    }
+
+    @keyframes stageAssemble {
+      0% { opacity: 0; transform: scale(0.58) rotate(-1.5deg); clip-path: circle(0% at 50% 50%); filter: blur(20px) saturate(1.7) contrast(1.25); }
+      46% { opacity: 1; clip-path: circle(44% at 50% 50%); }
+      100% { opacity: 1; transform: scale(1) rotate(0deg); clip-path: circle(145% at 50% 50%); filter: blur(0) saturate(1) contrast(1); }
+    }
+
+    @keyframes imageAssemble {
+      0% { filter: blur(24px) brightness(1.8); transform: scale(1.24); }
+      42% { filter: blur(8px) brightness(1.32); transform: scale(1.08); }
+      100% { filter: blur(0) brightness(1); transform: scale(1); }
+    }
+
+    @keyframes contentAssemble {
+      0% { opacity: 0; transform: translateX(-88px) scale(0.92); clip-path: inset(0 100% 0 0); filter: blur(12px); }
+      100% { opacity: 1; transform: translateX(0); clip-path: inset(0); filter: blur(0); }
+    }
+
+    @keyframes footerAssemble {
+      0% { opacity: 0; transform: translateY(34px); clip-path: inset(0 0 0 100%); }
+      100% { opacity: 1; transform: translateY(0); clip-path: inset(0); }
+    }
+
+    @keyframes hintAssemble {
+      0% { opacity: 0; transform: translateX(-50%) translateY(18px) scale(0.94); }
+      100% { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
+    }
+
+    @keyframes loaderStageCollapse {
+      0% { opacity: 1; transform: scale(1); filter: blur(0) brightness(1); }
+      42% { opacity: 1; transform: scale(0.42) rotate(-6deg); filter: blur(5px) brightness(1.45); }
+      70% { opacity: 0.95; transform: scale(0.08) rotate(16deg); filter: blur(12px) brightness(2.2); }
+      100% { opacity: 0; transform: scale(0.02) rotate(28deg); filter: blur(18px) brightness(3); }
+    }
+
+    @keyframes loaderShellCollapse {
+      0% { transform: translate(-50%, -50%) scale(1); }
+      55% { transform: translate(-50%, -50%) scale(0.22) rotate(12deg); }
+      100% { transform: translate(-50%, -50%) scale(0.015) rotate(28deg); }
+    }
+
+    @keyframes loaderBackdropCollapse {
+      0% { opacity: 1; clip-path: circle(145% at 50% 50%); }
+      38% { opacity: 1; clip-path: circle(68% at 50% 50%); }
+      76% { opacity: 0.96; clip-path: circle(9% at 50% 50%); }
+      100% { opacity: 0; clip-path: circle(0% at 50% 50%); }
+    }
+
+    @keyframes loaderGlowCollapse {
+      0% { opacity: 0.62; transform: scale(1.02) rotate(18deg); filter: blur(22px); }
+      62% { opacity: 1; transform: scale(0.18) rotate(88deg); filter: blur(8px); }
+      100% { opacity: 0; transform: scale(0.02) rotate(140deg); filter: blur(16px); }
+    }
+
+    @keyframes loaderCopyCollapse {
+      0% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+      100% { opacity: 0; transform: translateY(42px) scale(0.8); filter: blur(12px); }
+    }
+
+    @keyframes loaderImpactCore {
+      0% { opacity: 0; transform: translate(-50%, -50%) scale(0.2); }
+      38% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+      72% { opacity: 0.92; transform: translate(-50%, -50%) scale(3.8); }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(11); }
     }
 
     @media (min-width: 768px) {
@@ -1997,20 +2210,24 @@
         window.setTimeout(() => {
           loader.classList.add('exiting');
           pageShell.classList.remove('hidden');
-          pageShell.classList.add('visible');
+          pageShell.classList.add('visible', 'assembling');
 
           window.setTimeout(() => {
             loader.classList.remove('visible');
             loader.classList.add('hidden');
             showLoader = false;
-          }, 650);
+          }, 1050);
+
+          window.setTimeout(() => {
+            pageShell.classList.remove('assembling');
+          }, 1900);
         }, remaining);
       }
 
-      if (document.readyState === 'complete') {
+      if (document.readyState !== 'loading') {
         finish();
       } else {
-        window.addEventListener('load', finish, { once: true });
+        window.addEventListener('DOMContentLoaded', finish, { once: true });
       }
     }
 
